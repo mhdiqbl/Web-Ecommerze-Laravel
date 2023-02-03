@@ -51,7 +51,7 @@
                                                     Payment Status
                                                 </div>
                                                 <div class="product-subtitle text-success">
-                                                    Success
+                                                    Pending
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-6">
@@ -129,10 +129,9 @@
                                             </div>
                                             <div class="col-12 col-md-3">
                                                 <div class="product-title">
-                                                    Status
+                                                    Shipping Status
                                                 </div>
                                                 <select name="status" id="status" class="form-control" v-model="status">
-                                                    <option value="UNPAID">Unpaid</option>
                                                     <option value="PENDING">Pending</option>
                                                     <option value="SHIPPING">Shipping</option>
                                                     <option value="SUCCESS">Success</option>
