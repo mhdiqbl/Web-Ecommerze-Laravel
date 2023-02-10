@@ -100,8 +100,6 @@
 
 
 @stack('prepend-script')
-@stack('addon-script')
-
 <!-- Bootstrap core JavaScript -->
 <script src="/vendor/jquery/jquery.slim.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -115,6 +113,7 @@
         $("#wrapper").toggleClass("toggled");
     });
 </script>
+@stack('addon-script')
 </body>
 
 </html>
