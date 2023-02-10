@@ -78,13 +78,14 @@ class AdminCategoryController extends Controller
                                     </a>
                                     <form action="' . route('category.destroy', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
-                                        <button type="submit" class="dropdown-item text-danger">
+                                         <button type="submit" class="dropdown-item text-danger">
                                             Hapus
                                         </button>
                                     </form>
                                 </div>
                             </div>
-                    </div>';
+                    </div>
+                    ';
                 })
                 ->editColumn('photo', function ($item) {
                     return $item->photo ? '<img src="' . Storage::url($item->photo) . '" style="max-height: 40px;"/>' : '';
@@ -178,6 +179,9 @@ class AdminCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Category::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('category.index');
     }
 }
