@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
 @section('title')
-    Category
+    User
 @endsection
 
 @section('content')
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Category</h2>
-                <p class="dashboard-subtitle">Create New Category</p>
+                <h2 class="dashboard-title">User</h2>
+                <p class="dashboard-subtitle">Create New User</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -30,14 +30,29 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Name Category</label>
+                                                <label>Name User</label>
                                                 <input type="text" name="name" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Photo</label>
-                                                <input type="file" name="photo" class="form-control" required>
+                                                <label>Email User</label>
+                                                <input type="email" name="email" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Password User</label>
+                                                <input type="password" name="password" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Roles</label>
+                                                <select name="roles" class="form-control" required>
+                                                    <option value="ADMIN">Admin</option>
+                                                    <option value="User">User</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

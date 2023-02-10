@@ -12,6 +12,7 @@ use App\Http\Controllers\DashboardTransactionController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,7 @@ Route::prefix('admin')
 Route::prefix('admin')
     ->group(function(){
         Route::resource('category', AdminCategoryController::class);
+        Route::resource('user', AdminUserController::class);
     });
 
 Auth::routes();
