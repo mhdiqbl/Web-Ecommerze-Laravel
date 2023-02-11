@@ -25,19 +25,19 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Name User</label>
-                                                <input type="text" name="name" class="form-control" required>
+                                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Email User</label>
-                                                <input type="email" name="email" class="form-control" required>
+                                                <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
