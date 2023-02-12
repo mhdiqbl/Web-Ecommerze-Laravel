@@ -129,7 +129,6 @@ class AdminProductController extends Controller
      */
     public function update(ProductRequest $request, $id)
     {
-//        return $request->all();
         $data = $request->all();
 
         $item= Product::findOrFail($id);
