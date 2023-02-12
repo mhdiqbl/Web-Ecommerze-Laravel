@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class AdminProductController extends Controller
@@ -18,7 +21,7 @@ class AdminProductController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = Product::with(['product', 'category']);
+            $query = Product::with(['user', 'category']);
 
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
@@ -61,7 +64,13 @@ class AdminProductController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.product.create');
+        $users = User::all();
+        $categories = Category::all();
+
+        return view('pages.admin.product.create', [
+            'users' => $users,
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -74,7 +83,7 @@ class AdminProductController extends Controller
     {
         $data = $request->all();
 
-        $data['password'] = bcrypt($request->password);
+        $data['slug'] = Str::slug($request->name);
 
         Product::create($data);
 
