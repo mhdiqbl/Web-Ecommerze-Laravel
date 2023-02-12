@@ -51,7 +51,7 @@
                                                 <label>Roles</label>
                                                 <select name="roles" class="form-control" required>
                                                     <option value="ADMIN">Admin</option>
-                                                    <option value="User">User</option>
+                                                    <option value="USER">User</option>
                                                 </select>
                                             </div>
                                         </div>
