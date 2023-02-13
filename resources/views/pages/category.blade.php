@@ -19,7 +19,7 @@
                     @php $incrementCategory = 0 @endphp
                     @forelse($categories as $category)
                         <div class="col-6 col-md-3 col-lg-2" data-aos="fade-up" data-aos-delay="{{ $incrementCategory += 100 }}">
-                            <a href="{{ url('categories/', $category->slug) }}" class="component-categories d-block">
+                            <a href="{{ url('categories', $category->slug) }}" class="component-categories d-block">
                                 <div class="categories-image">
                                     <img src="{{ Storage::url($category->photo) }}" alt="" class="w-100">
                                 </div>
