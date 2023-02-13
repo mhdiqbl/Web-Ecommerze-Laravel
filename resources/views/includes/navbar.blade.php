@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link d-inline-block mt-2" href="#">
                             <img alt="" src="/images/icon-cart-filed.svg">
-                            <span class="card-badge">3</span>
+{{--                            <span class="card-badge">3</span>--}}
                         </a>
                     </li>
                 </ul>

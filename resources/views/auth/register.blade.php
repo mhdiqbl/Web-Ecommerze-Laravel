@@ -50,10 +50,10 @@
 
                             <div class="form-group">
                                 <label>Konfirmasi Password</label>
-                                <input id="password-confirm" type="password_confirm" class="form-control
-                                @error('password_confirm') is-invalid @enderror"
-                                       name="password_confirm" required autocomplete="new-password">
-                                @error('password_confirm')
+                                <input id="password-confirm" type="password" class="form-control
+                                @error('password_confirmation') is-invalid @enderror"
+                                       name="password_confirmation" required autocomplete="new-password">
+                                @error('password_confirmation')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -87,11 +87,11 @@
                             </div>
                             <div class="form-group" v-if="is_store_open">
                                 <label>Kategori</label>
-                                <select name="category" id="" class="form-control">
+                                <select name="categories_id" id="" class="form-control">
                                     <option value="" disabled>Select Kategori</option>
-{{--                                    @foreach($categories as $category)--}}
-{{--                                        <option value="{{ $category->id }}">{{ $category->name }}</option>--}}
-{{--                                    @endforeach--}}
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
