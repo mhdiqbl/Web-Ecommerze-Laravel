@@ -17,13 +17,53 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">Rewards</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/register.html" class="nav-link">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/login.html" class="btn btn-success nav-link px-4 text-white">Sign In</a>
-                </li>
+                @guest()
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="nav-link">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="btn btn-success nav-link px-4 text-white">Sign In</a>
+                    </li>
+                @endguest
             </ul>
+            @auth
+                <ul class="navbar-nav d-none d-lg-flex ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+                            <img alt="" class="rounded-circle mr-2 profile-picture" src="/images/icon-user.png">
+                            Hi, {{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                            <a class="dropdown-item" href="{{ route('dashboard-settings-account') }}">Setting</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link d-inline-block mt-2" href="#">
+                            <img alt="" src="/images/icon-cart-filed.svg">
+                            <span class="card-badge">3</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-blok d-lg-none">
+                    <li class="nav-item">
+                        <a class="nav-link d-block d-lg-none" href="#">
+                            Hi, Iqbal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-inline-block" href="#">
+                            Cart
+                        </a>
+                    </li>
+                </ul>
+            @endauth
         </div>
     </div>
 </nav>
