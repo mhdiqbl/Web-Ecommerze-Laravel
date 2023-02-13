@@ -137,6 +137,6 @@ class AdminProductGalleryController extends Controller
     {
         $item = ProductGallery::findOrFail($id);
         $item->delete();
-        return redirect()->route('product-gallery.index');
+        return redirect()->route('gallery.index');
     }
 }
