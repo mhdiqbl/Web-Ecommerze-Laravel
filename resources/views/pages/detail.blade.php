@@ -24,7 +24,7 @@
             </div>
         </section>
 
-        <section class="store-gallery" id="gallery">
+        <section class="store-gallery mb-3" id="gallery">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8" data-aos="zoom-in">
@@ -50,14 +50,24 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <h1>Sofa Ternyaman</h1>
-                            <div class="owner">By Iqbal</div>
-                            <div class="price">$1,809</div>
+                            <h1>{{ $product->name }}</h1>
+                            <div class="owner">By {{ $product->user->store_name }}</div>
+                            <div class="price">$ {{ number_format($product->price) }}</div>
                         </div>
                         <div class="col-lg-2" data-aos="zoom-in">
-                            <a href="cart.html" class="btn btn-success px-4 text-white btn-block mb-3">
-                                Add to Cart
-                            </a>
+                            @auth()
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                <button type="submit" class="btn btn-success px-4 text-white btn-block mb-3">
+                                    Add to Cart
+                                </button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-success px-4 text-white btn-block mb-3">
+                                    Sign in to Add
+                                </a>
+                            @endauth
+
                         </div>
                     </div>
                 </div>
@@ -67,10 +77,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, asperiores delectus deleniti explicabo fuga maxime nam natus voluptatem! Dolorem illum neque non obcaecati perspiciatis! Amet fuga laboriosam quae tenetur ut!
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi assumenda atque corporis ducimus earum eum expedita fugiat id, magnam. Adipisci, aperiam delectus dignissimos dolorum fuga fugiat obcaecati placeat rerum sit.
+                                {!! $product->description !!}
                             </p>
                         </div>
                     </div>
@@ -139,19 +146,14 @@
             },
             data: {
                 activePhoto: 0,
-                photos: [{
-                    id: 1,
-                    url: "/images/product-details-1.jpg"
-                }, {
-                    id: 2,
-                    url: "/images/product-details-2.jpg"
-                }, {
-                    id: 3,
-                    url: "/images/product-details-3.jpg"
-                }, {
-                    id: 4,
-                    url: "/images/product-details-4.jpg"
-                }, ],
+                photos: [
+                    @foreach($product->galleries as $gallery)
+                    {
+                        id: {{ $gallery->id }},
+                        url: "{{ Storage::url($gallery->photos) }}",
+                    }
+                    @endforeach
+                ],
             },
             methods: {
                 changeActive(id) {
