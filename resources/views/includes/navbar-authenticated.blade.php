@@ -22,9 +22,10 @@
                         <a class="dropdown-item" href="/">Logout</a>
                     </div>
                 <li class="nav-item">
-                    <a class="nav-link d-inline-block mt-2" href="#">
-                        <img alt="" src="/images/icon-cart-filed.svg">
-{{--                        <span class="card-badge">3</span>--}}
+                    <a class="nav-link d-inline-block mt-2" href="{{ route('cart') }}">
+                        <img alt="" src="/images/icon-cart-empty.svg">
+                        {{--<img alt="" src="/images/icon-cart-filed.svg">--}}
+                        {{--<span class="card-badge">3</span>--}}
                     </a>
                 </li>
             </ul>

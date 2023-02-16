@@ -46,9 +46,16 @@
                             </form>
                         </div>
                     <li class="nav-item">
-                        <a class="nav-link d-inline-block mt-2" href="#">
-                            <img alt="" src="/images/icon-cart-filed.svg">
-{{--                            <span class="card-badge">3</span>--}}
+                        <a class="nav-link d-inline-block mt-2" href="{{ route('cart') }}">
+                            @php
+                            $carts = \App\Models\Cart::where('users_id', Auth::user()->id)->count();
+                            @endphp
+                            @if($carts > 0)
+                                <img alt="" src="/images/icon-cart-filed.svg">
+                                <span class="card-badge">{{ $carts }}</span>
+                            @else
+                                <img alt="" src="/images/icon-cart-empty.svg">
+                            @endif
                         </a>
                     </li>
                 </ul>
