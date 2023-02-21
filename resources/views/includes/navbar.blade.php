@@ -62,7 +62,7 @@
                 <ul class="navbar-nav d-blok d-lg-none">
                     <li class="nav-item">
                         <a class="nav-link d-block d-lg-none" href="#">
-                            Hi, Iqbal
+                            Hi, {{ Auth::user()->name }}
                         </a>
                     </li>
                     <li class="nav-item">
