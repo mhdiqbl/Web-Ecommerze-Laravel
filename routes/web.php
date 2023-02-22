@@ -56,6 +56,7 @@ Route::get('/dashboard/transactions/{id}', [DashboardTransactionController::clas
 
 Route::get('/dashboard/settings', [DashboardSettingController::class, 'store'])->name('dashboard-settings-store');
 Route::get('/dashboard/account', [DashboardSettingController::class, 'account'])->name('dashboard-settings-account');
+Route::post('/dashboard/account/{redirect}', [DashboardSettingController::class, 'update'])->name('dashboard-settings-redirect');
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
