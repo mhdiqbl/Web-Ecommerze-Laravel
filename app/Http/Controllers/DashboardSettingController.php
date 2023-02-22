@@ -28,11 +28,12 @@ class DashboardSettingController extends Controller
 
     public function update(Request $request, $redirect)
     {
+//        return $redirect;
         $data = $request->all();
         $item = Auth::user();
 
         $item->update($data);
 
-        return $redirect()->route($redirect);
+        return redirect()->route($redirect);
     }
 }
