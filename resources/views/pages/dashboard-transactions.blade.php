@@ -24,92 +24,54 @@
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                <a href="/dashboard-transaction-details.html" class="card card-list d-block">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-1.png" alt="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                Sirup Marjan
-                                            </div>
-                                            <div class="col-md-3">
-                                                Ahmad Iqbal
-                                            </div>
-                                            <div class="col-md-3">
-                                                12 January, 2023
-                                            </div>
-                                            <div class="col-md-1 d-none d-md-block">
-                                                <img src="/images/dashboard-arrow-right.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="/dashboard-transaction-details.html" class="card card-list d-block">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-2.png" alt="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                LeBrone X
-                                            </div>
-                                            <div class="col-md-3">
-                                                Masayoshi
-                                            </div>
-                                            <div class="col-md-3">
-                                                11 January, 2023
-                                            </div>
-                                            <div class="col-md-1 d-none d-md-block">
-                                                <img src="/images/dashboard-arrow-right.svg" alt="">
+                                @foreach($sellTransactions as $transaction)
+                                    <a href="{{ route('dashboard-transactions-details', $transaction->id) }}" class="card card-list d-block">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ Storage::url($transaction->product->galleries->first()->photos ?? '') }}" class="w-75">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    {{ $transaction->product->name }}
+                                                </div>
+                                                <div class="col-md-3">
+                                                    {{ $transaction->product->user->store_name }}
+                                                </div>
+                                                <div class="col-md-3">
+                                                    {{ $transaction->created_at }}
+                                                </div>
+                                                <div class="col-md-1 d-none d-md-block">
+                                                    <img src="/images/dashboard-arrow-right.svg" alt="">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
-                                <a href="/dashboard-transaction-details.html" class="card card-list d-block">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-3.png" alt="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                Soffa Lembutte
-                                            </div>
-                                            <div class="col-md-3">
-                                                Shayna
-                                            </div>
-                                            <div class="col-md-3">
-                                                11 January, 2020
-                                            </div>
-                                            <div class="col-md-1 d-none d-md-block">
-                                                <img src="/images/dashboard-arrow-right.svg" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                @endforeach
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                <a href="/dashboard-transaction-details.html" class="card card-list d-block">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="/images/dashboard-icon-product-1.png" alt="">
-                                            </div>
-                                            <div class="col-md-4">
-                                                Sirup Marjan
-                                            </div>
-                                            <div class="col-md-3">
-                                                Ahmad Iqbal
-                                            </div>
-                                            <div class="col-md-3">
-                                                12 January, 2023
-                                            </div>
-                                            <div class="col-md-1 d-none d-md-block">
-                                                <img src="/images/dashboard-arrow-right.svg" alt="">
+                                @foreach($buyTransactions as $transaction)
+                                    <a href="{{ route('dashboard-transactions-details', $transaction->id) }}" class="card card-list d-block">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ Storage::url($transaction->product->galleries->first()->photos ?? '') }}" class="w-75">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    {{ $transaction->product->name }}
+                                                </div>
+                                                <div class="col-md-3">
+                                                    {{ $transaction->product->user->store_name }}
+                                                </div>
+                                                <div class="col-md-3">
+                                                    {{ $transaction->created_at }}
+                                                </div>
+                                                <div class="col-md-1 d-none d-md-block">
+                                                    <img src="/images/dashboard-arrow-right.svg" alt="">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
