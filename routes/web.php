@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminProductGalleryController;
+use App\Http\Controllers\Admin\AdminTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,7 @@ Route::prefix('admin')
         Route::resource('user', AdminUserController::class);
         Route::resource('product', AdminProductController::class);
         Route::resource('gallery', AdminProductGalleryController::class);
+        Route::resource('transaction', AdminTransactionController::class);
     });
 
 Auth::routes();

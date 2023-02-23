@@ -40,7 +40,8 @@
                         href="{{ route('category.index') }}">
                         Categories
                     </a>
-                    <a class="list-group-item list-group-item-action" href="/">
+                    <a class="list-group-item list-group-item-action{{ request()->is('admin/transaction*') ? 'active' : '' }}"
+                       href="{{ route('transaction.index') }}">
                         Transaction
                     </a>
                     <a class="list-group-item list-group-item-action {{ request()->is('admin/user*') ? 'active' : '' }}"
