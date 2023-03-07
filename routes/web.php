@@ -70,18 +70,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
-//Route::prefix('admin')
-//    ->namespace('Admin')
-//    ->middleware(['auth','admin'])
-//    ->group(function(){
-//        Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-//        Route::resource('category', AdminCategoryController::class);
-//        Route::resource('user', AdminUserController::class);
-//        Route::resource('product', AdminProductController::class);
-//        Route::resource('gallery', AdminProductGalleryController::class);
-////     Route::get('category', [AdminCategoryController::class, 'index'])->name('admin.category');
-//});
-
 Route::prefix('admin')
     ->middleware(['auth','admin'])
     ->group(function(){
