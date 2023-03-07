@@ -65,7 +65,7 @@ class CheckoutController extends Controller
             "transaction_details" => [
                 "order_id" => $code,
                 'gross_amount' => (int) $request->total_price,
-        ],
+            ],
             'customer_detail' => [
                 'first_name' => Auth::user()->name,
                 'email' => Auth::user()->email,
@@ -115,28 +115,28 @@ class CheckoutController extends Controller
         if ($status == 'capture'){
             if ($type == 'credit_card'){
                 if ($fraud == 'challenge'){
-                    $transaction->status = 'PENDING';
+                    $transaction->transaction_status = 'PENDING';
                 }
                 else {
-                    $transaction->status = 'SUCCESS';
+                    $transaction->transaction_status = 'SUCCESS';
                 }
             }
         }
 
         elseif ($status == 'settlement'){
-            $transaction->status = 'SUCCESS';
+            $transaction->transaction_status = 'SUCCESS';
         }
         elseif ($status == 'pending'){
-            $transaction->status = 'PENDING';
+            $transaction->transaction_status = 'PENDING';
         }
         elseif ($status == 'deny'){
-            $transaction->status = 'CANCELLED';
+            $transaction->transaction_status = 'CANCELLED';
         }
         elseif ($status == 'expire'){
-            $transaction->status = 'CANCELLED';
+            $transaction->transaction_status = 'CANCELLED';
         }
         elseif ($status == 'cancel'){
-            $transaction->status = 'CANCELLED';
+            $transaction->transaction_status = 'CANCELLED';
         }
 
         //Simpan transaksi
